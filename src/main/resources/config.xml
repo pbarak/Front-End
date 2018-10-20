@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <settings>
+    <zookeeper>
+		<zooip>snf-823775.vm.okeanos.grnet.gr:2181</zooip>
+		<zooip>snf-826182.vm.okeanos.grnet.gr:2181</zooip>
+		<zooip>snf-826234.vm.okeanos.grnet.gr:2181</zooip>
+    	<dirservicepath>/DirServices</dirservicepath>
+    	<authservicepath>/AuthServices</authservicepath>
+    	<webservicepath>/WebServices</webservicepath>
+    	<zoouser>panagiotis</zoouser>
+    	<zoopass>panagiotispass</zoopass>
+    </zookeeper>
+    <identifier>WEBID</identifier>
+    <skkey>ymryFt2bMOIuIkzNGURcx0aQ3Okh9QO1QE2wBIS4Gn8=</skkey>
+    <name>name</name>
+     <hostname>http://snf-823775.vm.okeanos.grnet.gr:8080/Web/Interface</hostname>
+  </settings>
