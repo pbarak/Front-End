@@ -1,2 +1,2 @@
 # Front-End
-Front End of online Photo Sharing Service
+Front End Project of online Photo Sharing Service
