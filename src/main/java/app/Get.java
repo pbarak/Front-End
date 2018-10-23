@@ -46,7 +46,7 @@ public class Get {
 	
 	public String getAllGalleries(String parameter)  {
 	
-			System.out.println(parameter);
+			
 			
 			
 	        HashMap<String, String> params = new HashMap<String, String>();
@@ -59,7 +59,7 @@ public class Get {
 
 	public String getGallery(String parameter)  {
 		
-			System.out.println(parameter);
+			
 	
 	        HashMap<String, String> params = new HashMap<String, String>();
 	        params.put("token", Token.getVariable());
@@ -114,17 +114,18 @@ public class Get {
 				
 				JSONArray jsonArray = jsonObj.getJSONArray("comments");
 				
-				if(jsonArray!=null) {
+				if(jsonArray!=null) 
+				{
 
 									
-					for(int l=0;l<jsonArray.length();l++){
+					for(int l=0;l<jsonArray.length();l++)
+					{
 						System.out.println(jsonArray.getJSONObject(l).getString("text"));
 						commented.add(new Comment(jsonArray.getJSONObject(l).getString("text"), jsonArray.getJSONObject(l).getString("commenter"), jsonArray.getJSONObject(l).getString("timestamp"))) ;
-					
-							}
+					}
 
-						}
-						return commented;	
+				}
+			return commented;	
 	}
 
 	public String getObjectsConnection(HashMap<String, String> params)
@@ -135,43 +136,44 @@ public class Get {
 			//get the element 0 of the list of the Directory Services
 		URL url = new URL(Configuration.getInstance().getAvailableDirectorySystems().get(0).get("URL").toString());
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
 		String result = null;
-        Iterator i = params.entrySet().iterator();	        
-        StringBuilder postData = new StringBuilder();
-        for (Entry<String, String> param : params.entrySet()) {
-            if (postData.length() != 0) {
-                postData.append('&');
-            }
-            postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-            postData.append('=');
-            postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+        	Iterator i = params.entrySet().iterator();	        
+        	StringBuilder postData = new StringBuilder();
+        	for (Entry<String, String> param : params.entrySet()) {
+            		if (postData.length() != 0) {
+                		postData.append('&');
+            	}
+            	postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+            	postData.append('=');
+            	postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
         }
         byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
         
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
-        conn.setDoOutput(true);
-        conn.getOutputStream().write(postDataBytes);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-        StringBuilder builder = new StringBuilder();
-        for (String line = null; (line = reader.readLine()) != null;) {
-            builder.append(line).append("\n");
-        }
-        reader.close();
-        conn.disconnect();
-        result = builder.toString();
+        	conn.setRequestMethod("GET");
+        	conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        	conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
+        	conn.setDoOutput(true);
+        	conn.getOutputStream().write(postDataBytes);
+        	BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+        	StringBuilder builder = new StringBuilder();
+        	for (String line = null; (line = reader.readLine()) != null;) {
+            		builder.append(line).append("\n");
+        	}
+        	reader.close();
+        	conn.disconnect();
+        	result = builder.toString();
         
-        return result;
-	} catch (MalformedURLException e) {
-		e.printStackTrace();
-		return null;
-	} catch (IOException e) {
-		e.printStackTrace();
-		return null;
-	}
+        	return result;
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	
