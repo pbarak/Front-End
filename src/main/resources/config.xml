@@ -7,8 +7,8 @@
     	<dirservicepath>/DirServices</dirservicepath>
     	<authservicepath>/AuthServices</authservicepath>
     	<webservicepath>/WebServices</webservicepath>
-    	<zoouser>panagiotis</zoouser>
-    	<zoopass>panagiotispass</zoopass>
+    	<zoouser>username</zoouser>
+    	<zoopass>password</zoopass>
     </zookeeper>
     <identifier>WEBID</identifier>
     <skkey>ymryFt2bMOIuIkzNGURcx0aQ3Okh9QO1QE2wBIS4Gn8=</skkey>
